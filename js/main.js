@@ -34,6 +34,7 @@
     applyConfig();
     renderCategories();
     renderGallery();
+    renderMarquee();
     setupCtaLinks();
     setupStickyCta();
     setupRevealOnScroll();
@@ -93,26 +94,51 @@
   }
 
   /* ------------------------------------------------------------
-   * 4. GALERIA (placeholders identificados no código)
+   * 4. GALERIA
    * ------------------------------------------------------------
-   * Cada item é um bloco gerado em CSS, não uma foto real.
-   * Para usar assets reais, troque o <li> por:
-   *   <li class="thumb">
-   *     <img src="assets/gallery/thumb-01.jpg" alt="" loading="lazy" width="360" height="640">
-   *     <span class="thumb__tag">PODCAST</span>
-   *   </li>
+   * As imagens em assets/gallery/ são gráficos gerados (gradiente +
+   * ícone da categoria), não fotos reais de vídeo — ver o comentário
+   * em GALLERY_PLACEHOLDERS (js/config.js). Basta trocar o "img" de
+   * cada item por uma thumbnail real quando ela existir.
    * ------------------------------------------------------------ */
   function renderGallery() {
     const grid = document.getElementById("gallery-grid");
     if (!grid) return;
     grid.innerHTML = GALLERY_PLACEHOLDERS.map(function (item) {
       return (
-        '<li class="thumb thumb--placeholder thumb--tone-' + item.tone + '">' +
+        '<li class="thumb">' +
+        '<img src="' + item.img + '" alt="" loading="lazy" width="540" height="960">' +
         '<span class="thumb__play" aria-hidden="true">▶</span>' +
         '<span class="thumb__tag">' + item.tag + "</span>" +
         "</li>"
       );
     }).join("");
+  }
+
+  /* ------------------------------------------------------------
+   * 4b. EFEITO "BIBLIOTECA INFINITA" (marquee decorativo)
+   * ------------------------------------------------------------
+   * Reaproveita as mesmas imagens da galeria, duplicadas para o loop
+   * contínuo ficar sem emenda. Puramente decorativo (aria-hidden).
+   * ------------------------------------------------------------ */
+  function renderMarquee() {
+    const row1 = document.getElementById("marquee-row1");
+    const row2 = document.getElementById("marquee-row2");
+    if (!row1 || !row2) return;
+
+    function toLi(item) {
+      return (
+        '<li class="thumb">' +
+        '<img src="' + item.img + '" alt="" loading="lazy" width="540" height="960">' +
+        '<span class="thumb__play" aria-hidden="true">▶</span>' +
+        "</li>"
+      );
+    }
+
+    const forward = GALLERY_PLACEHOLDERS.concat(GALLERY_PLACEHOLDERS);
+    const backward = GALLERY_PLACEHOLDERS.slice().reverse();
+    row1.innerHTML = forward.map(toLi).join("");
+    row2.innerHTML = backward.concat(backward).map(toLi).join("");
   }
 
   /* ------------------------------------------------------------

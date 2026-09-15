@@ -674,6 +674,7 @@ section {
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
+  background: var(--card);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -685,18 +686,17 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* Placeholders: gradientes gerados via CSS, sem fotos de banco de
-   imagens. Substituir por <img> real quando os assets chegarem. */
-.thumb--placeholder.thumb--tone-a {
-  background: linear-gradient(165deg, rgba(255, 0, 80, 0.9), #141414 70%);
-}
-.thumb--placeholder.thumb--tone-b {
-  background: linear-gradient(165deg, rgba(124, 58, 237, 0.9), #141414 70%);
-}
-.thumb--placeholder.thumb--tone-c {
-  background: linear-gradient(165deg, #3a3a3a, #101010 75%);
+@media (hover: hover) {
+  .gallery-grid .thumb:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-grid .thumb:hover {
+    border-color: var(--border-strong);
+  }
 }
 
 .thumb__play {

@@ -66,27 +66,27 @@ const CATEGORIES = [
 /**
  * Galeria "Veja o tamanho do acervo".
  * AJUSTAR: assim que houver 10–20 exemplos reais dos cortes do pack,
- * troque cada item por uma thumbnail real:
- *   { type: "image", src: "assets/gallery/thumb-01.jpg", tag: "PODCAST" }
- * Até lá, os itens abaixo usam blocos gerados em CSS (sem fotos de
- * banco de imagens) apenas para representar a categoria — são
- * placeholders, identificados pela classe "thumb--placeholder" no HTML.
+ * troque o "img" de cada item pelo caminho da thumbnail real (mesma
+ * pasta assets/gallery/, mesma proporção 9:16). Até lá, os arquivos
+ * em assets/gallery/thumb-XX.svg são gráficos gerados (gradiente +
+ * ícone da categoria) — não são fotos reais de vídeo, e foram criados
+ * com scripts/generate-gallery-images.js.
  */
 const GALLERY_PLACEHOLDERS = [
-  { tag: "PODCAST", tone: "a" },
-  { tag: "MOTIVAÇÃO", tone: "b" },
-  { tag: "DINHEIRO", tone: "c" },
-  { tag: "FITNESS", tone: "a" },
-  { tag: "RELACIONAMENTO", tone: "b" },
-  { tag: "GAMES", tone: "c" },
-  { tag: "FILMES", tone: "a" },
-  { tag: "NEGÓCIOS", tone: "b" },
-  { tag: "PODCAST", tone: "c" },
-  { tag: "MOTIVAÇÃO", tone: "a" },
-  { tag: "DINHEIRO", tone: "b" },
-  { tag: "FITNESS", tone: "c" },
-  { tag: "RELACIONAMENTO", tone: "a" },
-  { tag: "GAMES", tone: "b" },
-  { tag: "FILMES", tone: "c" },
-  { tag: "NEGÓCIOS", tone: "a" },
+  { tag: "PODCAST", img: "assets/gallery/thumb-01.svg" },
+  { tag: "MOTIVAÇÃO", img: "assets/gallery/thumb-02.svg" },
+  { tag: "DINHEIRO", img: "assets/gallery/thumb-03.svg" },
+  { tag: "FITNESS", img: "assets/gallery/thumb-04.svg" },
+  { tag: "RELACIONAMENTO", img: "assets/gallery/thumb-05.svg" },
+  { tag: "GAMES", img: "assets/gallery/thumb-06.svg" },
+  { tag: "FILMES", img: "assets/gallery/thumb-07.svg" },
+  { tag: "NEGÓCIOS", img: "assets/gallery/thumb-08.svg" },
+  { tag: "PODCAST", img: "assets/gallery/thumb-09.svg" },
+  { tag: "MOTIVAÇÃO", img: "assets/gallery/thumb-10.svg" },
+  { tag: "DINHEIRO", img: "assets/gallery/thumb-11.svg" },
+  { tag: "FITNESS", img: "assets/gallery/thumb-12.svg" },
+  { tag: "RELACIONAMENTO", img: "assets/gallery/thumb-13.svg" },
+  { tag: "GAMES", img: "assets/gallery/thumb-14.svg" },
+  { tag: "FILMES", img: "assets/gallery/thumb-15.svg" },
+  { tag: "NEGÓCIOS", img: "assets/gallery/thumb-16.svg" },
 ];
