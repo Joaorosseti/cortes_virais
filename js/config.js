@@ -24,8 +24,8 @@ const CONFIG = {
   // Isso evita ancoragem de preço falsa.
   OLD_PRICE: null, // exemplo quando confirmado: "39,90"
 
-  // AJUSTAR: link de checkout único usado em todos os botões da página.
-  CHECKOUT_URL: "COLE_AQUI_O_LINK_DO_CHECKOUT",
+  // Link de checkout único usado em todos os botões da página.
+  CHECKOUT_URL: "https://pay.kiwify.com.br/Iutv729",
 
   // AJUSTAR: nome/descrição real do brinde. Não inventar conteúdo.
   BONUS_NAME: "[NOME_DO_BRINDE]",
@@ -89,4 +89,29 @@ const GALLERY_PLACEHOLDERS = [
   { tag: "GAMES", img: "assets/gallery/thumb-14.svg" },
   { tag: "FILMES", img: "assets/gallery/thumb-15.svg" },
   { tag: "NEGÓCIOS", img: "assets/gallery/thumb-16.svg" },
+];
+
+/**
+ * Efeito "biblioteca infinita" (marquee decorativo, logo abaixo da
+ * galeria) e miniaturas do mockup de celular no Hero.
+ * Usa um conjunto de imagens DIFERENTE do da galeria (as 14
+ * categorias completas de CATEGORIES) para essas seções não
+ * mostrarem exatamente as mesmas imagens uma embaixo da outra.
+ * Gerado com scripts/generate-marquee-images.js.
+ */
+const MARQUEE_ITEMS = [
+  { img: "assets/marquee/thumb-01.svg" },
+  { img: "assets/marquee/thumb-02.svg" },
+  { img: "assets/marquee/thumb-03.svg" },
+  { img: "assets/marquee/thumb-04.svg" },
+  { img: "assets/marquee/thumb-05.svg" },
+  { img: "assets/marquee/thumb-06.svg" },
+  { img: "assets/marquee/thumb-07.svg" },
+  { img: "assets/marquee/thumb-08.svg" },
+  { img: "assets/marquee/thumb-09.svg" },
+  { img: "assets/marquee/thumb-10.svg" },
+  { img: "assets/marquee/thumb-11.svg" },
+  { img: "assets/marquee/thumb-12.svg" },
+  { img: "assets/marquee/thumb-13.svg" },
+  { img: "assets/marquee/thumb-14.svg" },
 ];

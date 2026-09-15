@@ -35,6 +35,7 @@
     renderCategories();
     renderGallery();
     renderMarquee();
+    renderPhoneMockup();
     setupCtaLinks();
     setupStickyCta();
     setupRevealOnScroll();
@@ -118,8 +119,9 @@
   /* ------------------------------------------------------------
    * 4b. EFEITO "BIBLIOTECA INFINITA" (marquee decorativo)
    * ------------------------------------------------------------
-   * Reaproveita as mesmas imagens da galeria, duplicadas para o loop
-   * contínuo ficar sem emenda. Puramente decorativo (aria-hidden).
+   * Usa MARQUEE_ITEMS (js/config.js) — um conjunto de imagens
+   * diferente do da galeria, duplicado para o loop contínuo ficar
+   * sem emenda. Puramente decorativo (aria-hidden).
    * ------------------------------------------------------------ */
   function renderMarquee() {
     const row1 = document.getElementById("marquee-row1");
@@ -135,10 +137,26 @@
       );
     }
 
-    const forward = GALLERY_PLACEHOLDERS.concat(GALLERY_PLACEHOLDERS);
-    const backward = GALLERY_PLACEHOLDERS.slice().reverse();
+    const forward = MARQUEE_ITEMS.concat(MARQUEE_ITEMS);
+    const backward = MARQUEE_ITEMS.slice().reverse();
     row1.innerHTML = forward.map(toLi).join("");
     row2.innerHTML = backward.concat(backward).map(toLi).join("");
+  }
+
+  /* ------------------------------------------------------------
+   * 4c. MOCKUP DE CELULAR (Hero)
+   * ------------------------------------------------------------
+   * Reaproveita os itens de MARQUEE_ITEMS (não os da galeria) para
+   * as 9 miniaturas dentro do "app" simulado no Hero.
+   * ------------------------------------------------------------ */
+  function renderPhoneMockup() {
+    const grid = document.getElementById("phone-thumbs");
+    if (!grid) return;
+    grid.innerHTML = MARQUEE_ITEMS.slice(0, 9)
+      .map(function (item) {
+        return '<div class="phone__thumb"><img src="' + item.img + '" alt="" loading="lazy" width="180" height="320"></div>';
+      })
+      .join("");
   }
 
   /* ------------------------------------------------------------
